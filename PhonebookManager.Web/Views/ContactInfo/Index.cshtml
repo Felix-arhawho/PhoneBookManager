@@ -1,0 +1,23 @@
+﻿@model IEnumerable<PhonebookManager.DataAccess.Models.ContactInfo>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_ContactInfo.cshtml";
+}
+
+<div class="sidenav">
+    <a href="#!/ViewContactInfo">View Contact Info</a>
+    <a href="#!/CreateContactInfo">Create Contact Info</a>
+    <a href="#!/EditContactInfo">Edit Contact Info</a>
+    <a href="#!/DeleteContactInfo">Delete Contact Info</a>
+</div>
+
+
+<div class="main">
+
+    <h3>Phone book manager application</h3>
+    <ng-view>
+
+    </ng-view>
+</div>
+

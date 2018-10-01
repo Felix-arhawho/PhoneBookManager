@@ -1,0 +1,80 @@
+﻿@{
+    ViewBag.Title = "Login";
+}
+
+<style>
+    .btnAdjustment {
+        float: right;
+    }
+
+    .panel-footer {
+        background: rgba(139,69,19, 0.9);
+    }
+
+    .forgotText {
+        float: right;
+    }
+
+    .regText {
+        display: inline-block;
+        padding-top: 13px;
+    }
+
+    .panel {
+        width: 40%;
+        margin: auto;
+        margin-top: 60px;
+    }
+
+    .panel-success > .panel-heading {
+        background: rgba(139,69,19, 0.9);
+        color: white;
+    }
+
+    .btn-success {
+        background: rgba(139,69,19, 0.9);
+        border-color: rgba(139,69,19, 0.9);
+        font-weight: bold;
+    }
+
+        .btn-success:hover {
+            background: rgb(139,69,19);
+        }
+</style>
+
+<div class="row" ng-controller="AuthController">
+    <div class="col-sm-12">
+        <div class="panel panel-success">
+            <div class="panel-heading">
+                <strong>Login Wizard</strong>
+            </div>
+            <div class="panel-body">
+                <form class="form-horizontal" ng-submit="" id="loginForm">
+                    <br /><br />
+                    <div class="form-group">
+                        <label class="control-label col-sm-4">Username</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" ng-model="User.Username" id="Username" placeholder="Enter Username" />
+                        </div>
+                    </div>
+                    <br />
+                    <div class="form-group">
+                        <label class="control-label col-sm-4">Password</label>
+                        <div class="col-sm-6">
+                            <input type="password" class="form-control" ng-model="User.Password" id="Password" placeholder="Enter Password" />
+                        </div>
+                    </div>
+                    <br /><br />
+                    <div class="form-group">
+                        <div class="col-sm-8 col-sm-offset-2">
+                            <input type="button" class="btn btn-success btn-block" value="Login" id="loginButton" />
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="panel-footer"></div>
+        </div>
+    </div>
+</div>
+

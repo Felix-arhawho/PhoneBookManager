@@ -1,0 +1,5 @@
+c:\users\smartware solutions\documents\visual studio 2017\Projects\PhonebookManager\PhonebookManager.Logic\bin\Debug\PhonebookManager.Logic.dll
+c:\users\smartware solutions\documents\visual studio 2017\Projects\PhonebookManager\PhonebookManager.Logic\bin\Debug\PhonebookManager.Logic.pdb
+c:\users\smartware solutions\documents\visual studio 2017\Projects\PhonebookManager\PhonebookManager.Logic\obj\Debug\PhonebookManager.Logic.csprojResolveAssemblyReference.cache
+c:\users\smartware solutions\documents\visual studio 2017\Projects\PhonebookManager\PhonebookManager.Logic\obj\Debug\PhonebookManager.Logic.dll
+c:\users\smartware solutions\documents\visual studio 2017\Projects\PhonebookManager\PhonebookManager.Logic\obj\Debug\PhonebookManager.Logic.pdb

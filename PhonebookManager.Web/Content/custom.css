@@ -1,0 +1,9 @@
+﻿.navbar-inverse {
+    background-color: rgb(139,69,19);
+    color: white;
+    border-color: rgb(139,69,19);
+}
+
+.navbar-inverse .navbar-brand {
+    color: white;
+}
