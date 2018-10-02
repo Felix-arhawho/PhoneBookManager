@@ -3,20 +3,24 @@
 app.config(function ($routeProvider) {
     $routeProvider
         .when("/", {
-            templateUrl: "/ContactInfo/ListOfContactInfo"
+            templateUrl: "/ContactInfo/ListOfContactInfo",
+            controller: "listController"
         })
         .when("/ViewContactInfo", {
             templateUrl: "/ContactInfo/ViewContactInfo",
-            controller: "ViewController"
+            controller: "viewController"
         }) 
         .when("/CreateContactInfo", {
-            templateUrl: "/ContactInfo/CreateContactInfo"
+            templateUrl: "/ContactInfo/CreateContactInfo",
+            controller: "createController"
         })
         .when("/EditContactInfo", {
-            templateUrl: "/ContactInfo/EditContactInfo"
+            templateUrl: "/ContactInfo/EditContactInfo",
+            controller: "editController"
         })
         .when("/DeleteContactInfo", {
-            templateUrl: "/ContactInfo/DeleteContactInfo"
+            templateUrl: "/ContactInfo/DeleteContactInfo",
+            controller: "deleteController"
         })
 })
 

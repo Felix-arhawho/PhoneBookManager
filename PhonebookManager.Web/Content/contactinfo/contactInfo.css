@@ -43,3 +43,7 @@
             font-size: 18px;
         }
 }
+
+.navbar-right{
+    margin-right: 50px !important;
+}

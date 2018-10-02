@@ -153,9 +153,14 @@
     <Content Include="Scripts\Angular\angular-route.js" />
     <Content Include="Scripts\Angular\angular.js" />
     <Content Include="Scripts\App\Auth\AuthController.js" />
+    <Content Include="Scripts\App\ContactInfo\ContactInfo.js" />
     <Content Include="Scripts\App\ContactInfo\contactInfoConfig.js" />
-    <Content Include="Scripts\App\ContactInfo\contactInfoController.js" />
-    <Content Include="Scripts\App\ContactInfo\Styles\contactInfo.css" />
+    <Content Include="Scripts\App\ContactInfo\ngcontrollers\createController.js" />
+    <Content Include="Scripts\App\ContactInfo\ngcontrollers\deleteController.js" />
+    <Content Include="Scripts\App\ContactInfo\ngcontrollers\editController.js" />
+    <Content Include="Scripts\App\ContactInfo\ngcontrollers\listController.js" />
+    <Content Include="Scripts\App\ContactInfo\ngcontrollers\viewController.js" />
+    <Content Include="Content\contactinfo\contactInfo.css" />
     <Content Include="Views\ContactInfo\_CreateContactInfo.cshtml" />
     <Content Include="Views\ContactInfo\_EditContactInfo.cshtml" />
     <Content Include="Views\ContactInfo\_DeleteContactInfo.cshtml" />

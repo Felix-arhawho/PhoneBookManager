@@ -18,10 +18,11 @@ app.controller("AuthController", function ($scope, $http, $window) {
                 'Content-Type': 'application/x-www-form-urlencoded'
             }
         }).then(function OnSuccess(response) {
-            window.location.pathname = 'ContactInfo/Index';
-            console.log(response.data);
+            var result = response.data;
+            localStorage.setItem('accessToken', result.access_token);
+            window.location.href = "/ContactInfo/Index";
             }, function OnError(response) {
-                console.log(response);
+                alert("Sorry, an error occurred. Please try again later");
             })
     }
 })
