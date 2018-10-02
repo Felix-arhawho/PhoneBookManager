@@ -1,0 +1,37 @@
+﻿.btnAdjustment {
+    float: right;
+}
+
+.panel-footer {
+    background: rgba(139,69,19, 0.9);
+}
+
+.forgotText {
+    float: right;
+}
+
+.regText {
+    display: inline-block;
+    padding-top: 13px;
+}
+
+.panel {
+    width: 40%;
+    margin: auto;
+    margin-top: 60px;
+}
+
+.panel-success > .panel-heading {
+    background: rgba(139,69,19, 0.9);
+    color: white;
+}
+
+.btn-success {
+    background: rgba(139,69,19, 0.9);
+    border-color: rgba(139,69,19, 0.9);
+    font-weight: bold;
+}
+
+    .btn-success:hover {
+        background: rgb(139,69,19);
+    }
