@@ -5,14 +5,17 @@
     Layout = "~/Views/Shared/_ContactInfo.cshtml";
 }
 
+@section styles{
+    <link href="~/Content/Login/login.css" rel="stylesheet" />
+    <link href="~/Content/contactinfo/contactInfo.css" rel="stylesheet" />
+    }
+
 <div class="sidenav">
     <a href="#!/CreateContactInfo">Create Contact Info</a>
 </div>
 
 
 <div class="main">
-
-    <h3>Phone book manager application</h3>
     <ng-view>
 
     </ng-view>
