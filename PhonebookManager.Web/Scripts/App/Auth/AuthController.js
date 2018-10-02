@@ -3,9 +3,6 @@ app.controller("AuthController", function ($scope, $http, $window) {
     $scope.User = {};
 
     $scope.login = function () {
-
-        console.log('Username: ' + $scope.User.username + ' Password: ' + $scope.User.password);
-
         $http({
             url: "/token",
             method: "POST",

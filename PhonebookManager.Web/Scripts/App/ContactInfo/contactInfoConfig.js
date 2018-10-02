@@ -23,7 +23,3 @@ app.config(function ($routeProvider) {
             controller: "deleteController"
         })
 })
-
-app.controller("ViewController", function ($scope) {
-    $scope.message = "View Contact Info";
-})

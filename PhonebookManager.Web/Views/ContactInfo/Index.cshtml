@@ -6,10 +6,7 @@
 }
 
 <div class="sidenav">
-    <a href="#!/ViewContactInfo">View Contact Info</a>
     <a href="#!/CreateContactInfo">Create Contact Info</a>
-    <a href="#!/EditContactInfo">Edit Contact Info</a>
-    <a href="#!/DeleteContactInfo">Delete Contact Info</a>
 </div>
 
 
@@ -21,3 +18,12 @@
     </ng-view>
 </div>
 
+@section scripts{
+    <script src="~/Scripts/Angular/angular-route.js"></script>
+    <script src="~/Scripts/App/ContactInfo/contactInfoConfig.js"></script>
+    <script src="~/Scripts/App/ContactInfo/ngcontrollers/listController.js"></script>
+    <script src="~/Scripts/App/ContactInfo/ngcontrollers/viewController.js"></script>
+    <script src="~/Scripts/App/ContactInfo/ngcontrollers/createController.js"></script>
+    <script src="~/Scripts/App/ContactInfo/ngcontrollers/editController.js"></script>
+    <script src="~/Scripts/App/ContactInfo/ngcontrollers/deleteController.js"></script>
+    }

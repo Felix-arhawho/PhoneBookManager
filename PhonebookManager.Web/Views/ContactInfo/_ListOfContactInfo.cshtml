@@ -1,2 +1,41 @@
 ﻿
-<h3>List of contact info</h3>
+<h3 ng-controller="listController" ng-init="listOfContactInfo()">
+    List of contact info
+</h3>
+
+<div class="table-responsive" ng-controller="listController" ng-init="listOfContactInfo()">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>S/N</th>
+                <th>Full Name</th>
+                <th>Telephone 1</th>
+                <th>Telephone 2</th>
+                <th>Email Address</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="contactInfo in contactInfos">
+                <td>{{contactInfo.id}}</td>
+                <td>{{contactInfo.fullName}}</td>
+                <td>{{contactInfo.telephone1}}</td>
+                <td>{{contactInfo.telephone2}}</td>
+                <td>{{contactInfo.emailAddress}}</td>
+                <td>
+                    <div class="dropdown">
+                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+                            Action
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a href="#!/ViewContactInfo">View</a></li>
+                            <li><a href="#!/EditContactInfo">Edit</a></li>
+                            <li><a href="#!/DeleteContactInfo">Delete</a></li>
+                        </ul>
+                    </div> 
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -37,13 +37,7 @@
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
     <script src="~/Scripts/Angular/angular.js"></script>
-    <script src="~/Scripts/Angular/angular-route.js"></script>
     <script src="~/Scripts/App/ContactInfo/ContactInfo.js"></script>
-    <script src="~/Scripts/App/ContactInfo/contactInfoConfig.js"></script>
-    <script src="~/Scripts/App/ContactInfo/ngcontrollers/listController.js"></script>
-    <script src="~/Scripts/App/ContactInfo/ngcontrollers/viewController.js"></script>
-    <script src="~/Scripts/App/ContactInfo/ngcontrollers/createController.js"></script>
-    <script src="~/Scripts/App/ContactInfo/ngcontrollers/editController.js"></script>
-    <script src="~/Scripts/App/ContactInfo/ngcontrollers/deleteController.js"></script>
+    @RenderSection("scripts", required: false)
 </body>
 </html>
