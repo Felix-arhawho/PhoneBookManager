@@ -2,13 +2,16 @@
 
 app.controller("createController", function ($scope, $http, $window) {
 
+    $scope.contactInfo = {};
+
     $scope.createContactInfo = function (contactInfo) {
-        var contactInfoVM = contactInfo;
+        $scope.contactInfo = contactInfo;
         var accessToken = localStorage.getItem('accessToken');
+
         $http({
             url: '/api/ContactInfo/CreateContactInfo',
-            method: 'POST',            
-            data: contactInfoVM,
+            method: 'POST',
+            data: contactInfo,
             headers: {
                 'Authorization': 'Bearer ' + accessToken
             }
@@ -18,5 +21,10 @@ app.controller("createController", function ($scope, $http, $window) {
         }, function OnError(response) {
             console.log(response);
         })
+    }
+
+
+    $scope.backToList = function () {
+        window.location.href = "/ContactInfo/Index";
     }
 })

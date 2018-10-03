@@ -12,7 +12,6 @@ app.controller("listController", function ($scope, $window, $http) {
             }
         }).then(function OnSuccess(response) {
             $scope.contactInfos = response.data;
-            console.log($scope.contactInfos);
             }, function OnError() {
                 console.log("Error");
             })

@@ -1,1 +1,90 @@
-﻿<h3>Edit Contact Info</h3>
+﻿
+<div class="row" ng-controller="editController">
+
+    <div class="row rowAdjustments">
+        <div class="col-sm-6">
+            <h3>Edit contact info</h3>
+        </div>
+        <div class="col-sm-2 pull-right btnAdjustments">
+            <button class="btn btn-success" ng-click="backToList()">Back to list</button>
+        </div>
+    </div>
+
+    <div class="panel panel-success">
+        <div class="panel-heading">
+            <strong>Edit Contact Info</strong>
+        </div>
+        <div class="panel-body">
+            <form class="form-horizontal" name="editContactForm" id="loginForm" novalidate>
+                <br /><br />
+                <input type="hidden" ng-model="contactInfo.id" />
+                <div class="form-group">
+                    <label class="control-label col-sm-4">First Name: </label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" ng-model="contactInfo.firstName"
+                               name="firstName" id="firstName" placeholder="Enter Username" required />
+                        <span ng-show="editContactForm.firstName.$dirty &&
+                              editContactForm.firstName.$invalid && editContactForm.firstName.$touched">
+                            First Name is required
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-4">Last Name</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" name="lastName"
+                               ng-model="contactInfo.lastName" id="lastName" placeholder="Enter Password" required />
+                        <span ng-show="editContactForm.lastName.$dirty &&
+                              editContactForm.lastName.$invalid && editContactForm.lastName.$touched">
+                            Last Name is required
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-sm-4">Telephone 1</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" name="telephone1"
+                               ng-model="contactInfo.telephone1" id="telephone1" placeholder="Enter Password" required />
+                        <span ng-show="editContactForm.telephone1.$dirty &&
+                              editContactForm.telephone1.$invalid && editContactForm.telephone1.$touched">
+                            Telephone1 is required
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-sm-4">Telephone 2</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" name="telephone2"
+                               ng-model="contactInfo.telephone2" id="telephone2" placeholder="Enter Password" required />
+                        <span ng-show="editContactForm.telephone2.$dirty &&
+                              editContactForm.telephone2.$invalid && editContactForm.telephone2.$touched">
+                            Telephone2 is required
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-sm-4">Email Address</label>
+                    <div class="col-sm-6">
+                        <input type="email" class="form-control" name="emailAddress"
+                               ng-model="contactInfo.emailAddress" id="emailAddress" placeholder="Enter Password" required />
+                        <span ng-show="editContactForm.emailAddress.$dirty &&
+                              editContactForm.emailAddress.$invalid && editContactForm.emailAddress.$touched">
+                            <span ng-show="editContactForm.emailAddress.$error.required">Email is required.</span>
+                            <span ng-show="editContactForm.emailAddress.$error.email">Invalid email address.</span>
+                        </span>
+                    </div>
+                </div>
+                <br /><br />
+                <div class="form-group">
+                    <div class="col-sm-8 col-sm-offset-2">
+                        <input type="button" ng-disabled="editContactForm.$invalid" ng-click="editContactInfo(contactInfo)" 
+                               class="btn btn-success btn-block" value="Edit Contact Info" />
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

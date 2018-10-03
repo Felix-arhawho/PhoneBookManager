@@ -6,7 +6,7 @@ app.config(function ($routeProvider) {
             templateUrl: "/ContactInfo/ListOfContactInfo",
             controller: "listController"
         })
-        .when("/ViewContactInfo", {
+        .when("/ViewContactInfo/:id", {
             templateUrl: "/ContactInfo/ViewContactInfo",
             controller: "viewController"
         }) 
@@ -14,12 +14,15 @@ app.config(function ($routeProvider) {
             templateUrl: "/ContactInfo/CreateContactInfo",
             controller: "createController"
         })
-        .when("/EditContactInfo", {
+        .when("/EditContactInfo/:id", {
             templateUrl: "/ContactInfo/EditContactInfo",
             controller: "editController"
         })
-        .when("/DeleteContactInfo", {
+        .when("/DeleteContactInfo/:id", {
             templateUrl: "/ContactInfo/DeleteContactInfo",
             controller: "deleteController"
+        })
+        .otherwise({
+            redirectTo: "/"
         })
 })

@@ -1,1 +1,39 @@
-﻿<h3>Delete Contact Info</h3>
+﻿
+<h4>Confirm Delete</h4><br />
+
+<div class="panel panel-success" ng-controller="deleteController">
+    <div class="panel-heading">
+        <strong>Are you sure you want to delete {{contactInfo.fullName}} from your contact?</strong>
+    </div>
+    <div class="panel-body">
+        <div class="row rowModification">
+            <img src="~/Content/image/contact.jpg" alt="Album Image" /><br /><br />
+
+            <div>
+                <label class="control-label labelAdjustments">Full Name:</label>
+                <span>{{contactInfo.fullName}}</span>
+            </div>
+
+            <div>
+                <label class="control-label labelAdjustments">Telephone 1:</label>
+                <span>{{contactInfo.telephone1}}</span>
+            </div>
+
+            <div>
+                <label class="control-label labelAdjustments">Telephone 2:</label>
+                <span>{{contactInfo.telephone2}}</span>
+            </div>
+
+            <div>
+                <label class="control-label labelAdjustments">Email Address:</label>
+                <span>{{contactInfo.emailAddress}}</span>
+            </div>
+        </div>
+    </div><br />
+
+    <div class="deleteButtons">
+        <a class="btn btn-danger" ng-click="deleteContactInfo(contactInfo.id)">Delete Contact</a>
+        <a class="btn btn-info" ng-click="backToList()">Back To List</a>
+    </div><br /><br />
+    <div class="panel-footer"></div>
+</div>

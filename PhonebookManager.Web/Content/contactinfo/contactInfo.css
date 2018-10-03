@@ -46,3 +46,52 @@
 .navbar-right{
     margin-right: 50px !important;
 }
+
+.panel{
+    margin-top: 20px;
+    width: 80%;
+}
+
+.btnAdjustments{
+    margin-top: 30px;
+    margin-right: 40px;
+}
+
+.rowAdjustments{
+    padding-left: 10px;
+}
+
+
+/*.panel-footer {
+    color: #3a87ad;
+    background-color: #d9edf7;
+}*/
+
+    .panel-footer p {
+        text-align: center;
+    }
+
+.panel-body img {
+    height: 60px;
+    width: 80px;
+}
+
+.panel-body .labelAdjustments {
+    width: 150px;
+}
+
+.panel-body span {
+    width: 150px;
+}
+
+.panel-body .rowModification {
+    padding-left: 30px;
+}
+
+.deleteButtons {
+    padding-left: 30px;
+}
+
+.form-group span {
+    color: red;
+}
