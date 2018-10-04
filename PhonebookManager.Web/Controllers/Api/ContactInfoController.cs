@@ -37,6 +37,44 @@ namespace PhonebookManager.Web.Controllers.Api
             }
         }
 
+        [HttpPost, Route("PaginatedContactInfo")]
+        public HttpResponseMessage PaginatedContactInfo(PaginationViewModel paginationVM)
+        {
+            var responseViewModel = new ResponseViewModel();
+            try
+            {
+                var contactInfos = _context.ContactInfos.ToList();
+                var firstContactInfo = contactInfos[0];
+                var lastContactInfo = contactInfos[contactInfos.Count - 1];
+
+                var paginatedContactInfos = (contactInfos.Skip((paginationVM.PageIndex - 1) * paginationVM.PageSize)
+                                                        .Take(paginationVM.PageSize)).ToList();
+
+                foreach (var paginatedContactInfo in paginatedContactInfos)
+                {
+                    if (paginatedContactInfo == lastContactInfo)
+                    {
+                        responseViewModel.EndOfTheList = true;
+                    }
+
+                    if(paginatedContactInfo == firstContactInfo)
+                    {
+                        responseViewModel.BeginningOfTheList = true;
+                    }
+                }
+
+                responseViewModel.ContactInfos = paginatedContactInfos;
+
+                message = Request.CreateResponse(HttpStatusCode.OK, responseViewModel);
+                return message;
+            }
+            catch(Exception ex)
+            {
+                message = Request.CreateResponse(HttpStatusCode.BadRequest, ex.Message);
+                return message;
+            }
+        }
+
         [HttpGet, Route("GetContactInfoById/{Id}")]
         public HttpResponseMessage GetContactInfoById(int Id)
         {

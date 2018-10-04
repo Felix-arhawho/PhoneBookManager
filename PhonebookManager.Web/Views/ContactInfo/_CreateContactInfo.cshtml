@@ -13,7 +13,7 @@
 
     <div class="panel panel-success">
         <div class="panel-heading">
-            <strong>New Contact Info</strong>
+            <strong>Kindly fill all fields correctly in order to activate the submit button. All fields are mandatory</strong>
         </div>
         <div class="panel-body">
             <form class="form-horizontal" name="createContactForm" 
@@ -23,7 +23,7 @@
                     <label class="control-label col-sm-4">First Name: </label>
                     <div class="col-sm-6">
                         <input type="text" class="form-control" ng-model="contactInfo.firstName" 
-                               name="firstName" id="firstName" placeholder="Enter Username" required />
+                               name="firstName" id="firstName" placeholder="Enter First Name" required />
                         <span ng-show="createContactForm.firstName.$dirty && 
                               createContactForm.firstName.$invalid && createContactForm.firstName.$touched">
                             First Name is required
@@ -34,7 +34,7 @@
                     <label class="control-label col-sm-4">Last Name</label>
                     <div class="col-sm-6">
                         <input type="text" class="form-control" name="lastName" 
-                               ng-model="contactInfo.lastName" id="lastName" placeholder="Enter Password" required />
+                               ng-model="contactInfo.lastName" id="lastName" placeholder="Enter Last Name" required />
                         <span ng-show="createContactForm.lastName.$dirty &&
                               createContactForm.lastName.$invalid && createContactForm.lastName.$touched">
                             Last Name is required
@@ -46,7 +46,7 @@
                     <label class="control-label col-sm-4">Telephone 1</label>
                     <div class="col-sm-6">
                         <input type="text" class="form-control" name="telephone1"
-                               ng-model="contactInfo.telephone1" id="telephone1" placeholder="Enter Password" required />
+                               ng-model="contactInfo.telephone1" id="telephone1" placeholder="Enter First Telephone Number" required />
                         <span ng-show="createContactForm.telephone1.$dirty &&
                               createContactForm.telephone1.$invalid && createContactForm.telephone1.$touched">
                             Telephone1 is required
@@ -58,7 +58,7 @@
                     <label class="control-label col-sm-4">Telephone 2</label>
                     <div class="col-sm-6">
                         <input type="text" class="form-control" name="telephone2"
-                               ng-model="contactInfo.telephone2" id="telephone2" placeholder="Enter Password" required />
+                               ng-model="contactInfo.telephone2" id="telephone2" placeholder="Enter Second Telephone Number" required />
                         <span ng-show="createContactForm.telephone2.$dirty &&
                               createContactForm.telephone2.$invalid && createContactForm.telephone2.$touched">
                             Telephone2 is required
@@ -70,7 +70,7 @@
                     <label class="control-label col-sm-4">Email Address</label>
                     <div class="col-sm-6">
                         <input type="email" class="form-control" name="emailAddress"
-                               ng-model="contactInfo.emailAddress" id="emailAddress" placeholder="Enter Password" required />
+                               ng-model="contactInfo.emailAddress" id="emailAddress" placeholder="Enter Your Valid Email Address" required />
                         <span ng-show="createContactForm.emailAddress.$dirty &&
                               createContactForm.emailAddress.$invalid && createContactForm.emailAddress.$touched">
                             <span ng-show="createContactForm.emailAddress.$error.required">Email is required.</span>
@@ -82,7 +82,7 @@
                 <div class="form-group">
                     <div class="col-sm-8 col-sm-offset-2">
                         <input type="button" ng-disabled="createContactForm.$invalid" ng-click="createContactInfo(contactInfo)" 
-                               class="btn btn-success btn-block" value="Create Contact Info" />
+                               class="btn btn-success btn-block" value="Submit" />
                     </div>
                 </div>
             </form>

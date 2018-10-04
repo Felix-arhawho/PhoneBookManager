@@ -95,3 +95,33 @@
 .form-group span {
     color: red;
 }
+
+.pager li > a {
+    background-color: rgb(139,69,19);
+}
+
+.pager li > a:hover{
+    background-color: rgb(139,69,19);
+    border: 1px solid rgb(139,69,19);
+}
+
+.pager li > button {
+    display: inline-block;
+    padding: 5px 14px;
+    background-color: rgb(139,69,19);
+    border: 1px solid rgb(139,69,19);
+    border-radius: 15px;
+    color: white;
+    font-size: 13px;
+}
+
+.pager li > button:hover{
+    background-color: rgb(139,69,19);
+    border: 1px solid rgb(139,69,19);
+}
+
+    .pager li > button[disabled], .btn[disabled] {
+        background-color: rgb(199, 177, 162);
+        border: none;
+        color: rgba(139,69,19, 0.3);
+    }
