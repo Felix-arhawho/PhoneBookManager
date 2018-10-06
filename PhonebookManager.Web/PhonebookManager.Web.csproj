@@ -151,6 +151,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\angular-blockui\angular-block-ui.css" />
+    <Content Include="Scripts\Angular\angular-blockui\angular-block-ui.js" />
     <Content Include="Scripts\Angular\angular-route.js" />
     <Content Include="Scripts\Angular\angular-validator-master\dist\angular-validator-rules.js" />
     <Content Include="Scripts\Angular\angular-validator-master\dist\angular-validator-rules.min.js" />
@@ -190,6 +192,8 @@
     <Content Include="Scripts\Angular\angular-validator-master\test\karma.config.coffee" />
     <Content Include="Scripts\Angular\angular-validator-master\test\specs\directiveSpec.coffee" />
     <Content Include="Scripts\Angular\angular-validator-master\test\specs\providerSpec.coffee" />
+    <Content Include="Content\angular-blockui\angular-block-ui.css.map" />
+    <Content Include="Scripts\Angular\angular-blockui\angular-block-ui.js.map" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -222,6 +226,7 @@
     <Compile Include="ViewModels\ContactInfoViewModel.cs" />
     <Compile Include="ViewModels\PaginationViewModel.cs" />
     <Compile Include="ViewModels\ResponseViewModel.cs" />
+    <Compile Include="ViewModels\SearchViewModel.cs" />
     <Compile Include="ViewModels\UserViewModel.cs" />
   </ItemGroup>
   <ItemGroup>

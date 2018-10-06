@@ -2,21 +2,25 @@
 
 app.controller("listController", function ($scope, $window, $http) {
 
-    $scope.paginationViewModel = {
-        pageIndex: 1,
-        pageSize: 4
+    $scope.contactInfoViewModel = {
+        paginationViewModel: {
+            pageIndex: 1,
+            pageSize: 4
+        }
     }
 
+    $scope.contactInfos = {};
 
-    var getContactInfos = function () {
+    var listOfContactInfo = function () {
         var accessToken = localStorage.getItem('accessToken');
+        //blockUI.start();
         $http({
             method: 'POST',
-            url: '/api/ContactInfo/PaginatedContactInfo',
+            url: '/api/ContactInfo/GetAllContactInfo',
             headers: {
                 'Authorization': 'Bearer ' + accessToken
             },
-            data: $scope.paginationViewModel
+            data: $scope.contactInfoViewModel
         }).then(function OnSuccess(response) {
             $scope.contactInfos = response.data.contactInfos;
             $scope.beginningOfTheList = response.data.beginningOfTheList;
@@ -24,27 +28,50 @@ app.controller("listController", function ($scope, $window, $http) {
         }, function OnError() {
             console.log("Error");
         })
+        //blockUI.stop();
     }
 
-    $scope.listOfContactInfo = function () {
-        getContactInfos();
+    $scope.getListOfContactInfo = function () {
+        listOfContactInfo();
     }
 
     $scope.nextPage = function () {
-        $scope.paginationViewModel.pageIndex += 1;
-        getContactInfos();
+        $scope.contactInfoViewModel.paginationViewModel.pageIndex += 1;
+        listOfContactInfo();
     }
 
     $scope.previousPage = function () {
-        $scope.paginationViewModel.pageIndex -= 1;
-        getContactInfos();
+        $scope.contactInfoViewModel.paginationViewModel.pageIndex -= 1;
+        listOfContactInfo();
     }
 
 
-    //var firstRowNumber = 0;
-    //$scope.getSerialNumber = function () {
-    //    $scope.serialNumber += firstRowNumber;
+
+    //$scope.searchViewModel = {
+    //    searchBy: "",
+    //    searchContent: ""
     //}
+
+    //var searchContactInfo = function () {
+    //    var accessToken = localStorage.getItem('accessToken');
+    //    $http({
+    //        method: 'POST',
+    //        url: '/api/ContactInfo/GetAllContactInfo',
+    //        headers: {
+    //            'Authorization': 'Bearer ' + accessToken
+    //        },
+    //        data: $scope.searchViewModel
+    //    }).then(function OnSuccess(response) {
+    //        $scope.contactInfos = response.data;
+    //        }, function OnError() {
+    //            console.log("Error");
+    //        })
+    //}
+
+    //$scope.getSearchedContactInfo = function () {
+    //    searchContactInfo();
+    //}
+
 
     $scope.logout = function () {
         localStorage.removeItem('accessToken');

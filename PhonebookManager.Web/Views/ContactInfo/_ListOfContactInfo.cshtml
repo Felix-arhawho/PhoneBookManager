@@ -1,45 +1,81 @@
 ﻿
-<h3>
-    List of contact info
-</h3><br />
+<div ng-controller="listController" ng-init="getListOfContactInfo()">
 
-<div class="table-responsive" ng-controller="listController" ng-init="listOfContactInfo()">
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>S/N</th>
-                <th>Full Name</th>
-                <th>Telephone 1</th>
-                <th>Telephone 2</th>
-                <th>Email Address</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr ng-repeat="contactInfo in contactInfos">
-                <td>{{contactInfo.id}}</td>
-                <td>{{contactInfo.fullName}}</td>
-                <td>{{contactInfo.telephone1}}</td>
-                <td>{{contactInfo.telephone2}}</td>
-                <td>{{contactInfo.emailAddress}}</td>
-                <td>
-                    <div class="dropdown">
-                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
-                            Action
-                            <span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li><a href="#!/EditContactInfo/{{contactInfo.id}}">Edit</a></li>
-                            <li><a href="#!/DeleteContactInfo/{{contactInfo.id}}">Delete</a></li>
-                        </ul>
-                    </div> 
-                </td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="row rowAdjustments">
+        <div class="col-sm-3">
+            <h3>List of contact info</h3>
+        </div>
+        <div class="searchAdjustments">
+            <form class="form-inline">
 
-    <ul class="pager">
-        <li><button ng-disabled="beginningOfTheList" ng-click="previousPage()">Previous</button></li>
-        <li><button ng-disabled="endOfTheList" ng-click="nextPage()">Next</button></li>
-    </ul> 
+                <div class="col-sm-3 form-group inputAdjustments">
+                    <div class="input-group">
+                        <input type="text" class="form-control" ng-model="contactInfoViewModel.searchViewModel.searchContent" placeholder="Search">
+                        <div class="input-group-btn">
+                            <button class="btn btn-success" ng-click="getListOfContactInfo()">
+                                <i class="glyphicon glyphicon-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group inputAdjustments">
+                    <select class="form-control" ng-model="contactInfoViewModel.searchViewModel.searchBy" placeholder="Search By">
+                        <option>Name</option>
+                        <option>Email</option>
+                    </select>
+                </div>
+
+                <div class="form-group inputAdjustments">
+                    <label class="labelAdjustments">Search By</label>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+
+
+    <br />
+
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>S/N</th>
+                    <th>Full Name</th>
+                    <th>Telephone 1</th>
+                    <th>Telephone 2</th>
+                    <th>Email Address</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="contactInfo in contactInfos">
+                    <td>{{contactInfo.id}}</td>
+                    <td>{{contactInfo.fullName}}</td>
+                    <td>{{contactInfo.telephone1}}</td>
+                    <td>{{contactInfo.telephone2}}</td>
+                    <td>{{contactInfo.emailAddress}}</td>
+                    <td>
+                        <div class="dropdown">
+                            <button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown">
+                                Action
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a href="#!/EditContactInfo/{{contactInfo.id}}">Edit</a></li>
+                                <li><a href="#!/DeleteContactInfo/{{contactInfo.id}}">Delete</a></li>
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <ul class="pager">
+            <li><button ng-disabled="beginningOfTheList" ng-click="previousPage()">Previous</button></li>
+            <li><button ng-disabled="endOfTheList" ng-click="nextPage()">Next</button></li>
+        </ul>
+    </div>
 </div>

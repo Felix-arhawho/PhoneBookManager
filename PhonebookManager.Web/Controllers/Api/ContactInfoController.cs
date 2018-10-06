@@ -16,31 +16,132 @@ namespace PhonebookManager.Web.Controllers.Api
         //Used db context in controller due to size of project.
         private PhonebookManagerContext _context;
         private HttpResponseMessage message;
+        private ResponseViewModel responseViewModel;
         public ContactInfoController()
         {
             _context = new PhonebookManagerContext();
         }
 
-        [Route("GetAllContactInfo"), HttpGet]
-        public HttpResponseMessage GetAllContactInfo()
+        [Route("GetAllContactInfo"), HttpPost]
+        public HttpResponseMessage GetAllContactInfo(ContactInfoViewModel contactInfoViewModel)
         {
+            responseViewModel = new ResponseViewModel();
+            var searchResult = new List<ContactInfo>();
+
             try
             {
-                var contactInfos = _context.ContactInfos.ToList();
-                message = Request.CreateResponse(HttpStatusCode.OK, contactInfos);
-                return message;
+                if (contactInfoViewModel.SearchViewModel != null)
+                {
+                    switch (contactInfoViewModel.SearchViewModel.SearchBy)
+                    {
+                        case "Name":
+                            searchResult = _context.ContactInfos.Where(n => n.FullName
+                                                .Contains(contactInfoViewModel.SearchViewModel.SearchContent)).ToList();
+                            break;
+                        case "Email":
+                            searchResult = _context.ContactInfos.Where(e => e.EmailAddress
+                                                .Contains(contactInfoViewModel.SearchViewModel.SearchContent)).ToList();
+                            break;
+                    }
+                    if (searchResult.Count == 0)
+                    {
+                        message = Request.CreateResponse(HttpStatusCode.NoContent, "Sorry, there is no record with "
+                                                + contactInfoViewModel.SearchViewModel.SearchContent);
+                    }
+                    else
+                    {
+                        var firstContactInfo = searchResult[0];
+                        var lastContactInfo = searchResult[searchResult.Count - 1];
+
+                        responseViewModel.ContactInfos = (searchResult.Skip((contactInfoViewModel.PaginationViewModel.PageIndex - 1)
+                                                         * contactInfoViewModel.PaginationViewModel.PageSize)
+                                                         .Take(contactInfoViewModel.PaginationViewModel.PageSize)).ToList();
+
+                        foreach(var contactInfo in responseViewModel.ContactInfos)
+                        {
+                            if (contactInfo == firstContactInfo)
+                            {
+                                responseViewModel.BeginningOfTheList = true;
+                            }
+
+                            if (contactInfo == lastContactInfo)
+                            {
+                                responseViewModel.EndOfTheList = true;
+                            }
+                        }
+
+                        message = Request.CreateResponse(HttpStatusCode.OK, responseViewModel);
+                    }
+                }
+                else
+                {
+                    //var contactInfos = _context.ContactInfos.ToList();
+                    var firstContactInfo = _context.ContactInfos.FirstOrDefault();
+                    var lastContactInfo = _context.ContactInfos.OrderByDescending(c => c.Id).FirstOrDefault();
+
+                    responseViewModel.ContactInfos = (_context.ContactInfos.OrderBy(c => c.Id)
+                                                     .Skip((contactInfoViewModel.PaginationViewModel.PageIndex - 1)
+                                                     * contactInfoViewModel.PaginationViewModel.PageSize)
+                                                     .Take(contactInfoViewModel.PaginationViewModel.PageSize)).ToList();
+
+                    foreach (var ContactInfo in responseViewModel.ContactInfos)
+                    {
+                        if (ContactInfo == firstContactInfo)
+                        {
+                            responseViewModel.BeginningOfTheList = true;
+                        }
+
+                        if (ContactInfo == lastContactInfo)
+                        {
+                            responseViewModel.EndOfTheList = true;
+                        }
+                    }
+
+                    message = Request.CreateResponse(HttpStatusCode.OK, responseViewModel);
+                }
             }
             catch (Exception ex)
             {
                 message = Request.CreateResponse(HttpStatusCode.BadRequest, ex.Message);
-                return message;
             }
+
+            return message;
+        }
+
+        [HttpPost, Route("SearchContactInfo")]
+        public HttpResponseMessage SearchContactInfo(SearchViewModel searchVM)
+        {
+            responseViewModel = new ResponseViewModel();
+
+            switch (searchVM.SearchBy)
+            {
+                case "Name":
+                    responseViewModel.ContactInfos = _context.ContactInfos
+                                            .Where(n => n.FullName.Contains(searchVM.SearchContent)).ToList();
+                    break;
+                case "Email":
+                    responseViewModel.ContactInfos = _context.ContactInfos
+                                            .Where(e => e.EmailAddress.Contains(searchVM.SearchContent)).ToList();
+                    break;
+            }
+            if (responseViewModel.ContactInfos.Count == 0)
+            {
+                message = Request.CreateResponse(
+                    HttpStatusCode.NoContent, "Sorry, there is no record with " + searchVM.SearchContent);
+            }
+            else
+            {
+                var firstContactInfo = responseViewModel.ContactInfos[0];
+                var lastContactInfo = responseViewModel.ContactInfos[responseViewModel.ContactInfos.Count - 1];
+                message = Request.CreateResponse(HttpStatusCode.OK, responseViewModel.ContactInfos);
+            }
+            return message;
         }
 
         [HttpPost, Route("PaginatedContactInfo")]
         public HttpResponseMessage PaginatedContactInfo(PaginationViewModel paginationVM)
         {
-            var responseViewModel = new ResponseViewModel();
+            responseViewModel = new ResponseViewModel();
             try
             {
                 var contactInfos = _context.ContactInfos.ToList();
@@ -57,7 +158,7 @@ namespace PhonebookManager.Web.Controllers.Api
                         responseViewModel.EndOfTheList = true;
                     }
 
-                    if(paginatedContactInfo == firstContactInfo)
+                    if (paginatedContactInfo == firstContactInfo)
                     {
                         responseViewModel.BeginningOfTheList = true;
                     }
@@ -68,7 +169,7 @@ namespace PhonebookManager.Web.Controllers.Api
                 message = Request.CreateResponse(HttpStatusCode.OK, responseViewModel);
                 return message;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 message = Request.CreateResponse(HttpStatusCode.BadRequest, ex.Message);
                 return message;
@@ -101,7 +202,7 @@ namespace PhonebookManager.Web.Controllers.Api
                     return message;
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 message = Request.CreateResponse(HttpStatusCode.BadRequest, ex.Message);
                 return message;
@@ -128,7 +229,7 @@ namespace PhonebookManager.Web.Controllers.Api
                 }
                 return message;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 message = Request.CreateResponse(HttpStatusCode.BadRequest, ex.Message);
                 return message;

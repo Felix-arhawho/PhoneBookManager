@@ -14,5 +14,7 @@ namespace PhonebookManager.Web.ViewModels
         public string Telephone1 { get; set; }
         public string Telephone2 { get; set; }
         public string EmailAddress { get; set; }
+        public PaginationViewModel PaginationViewModel { get; set; }
+        public SearchViewModel SearchViewModel { get; set; }
     }
 }

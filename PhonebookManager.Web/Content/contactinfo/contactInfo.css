@@ -125,3 +125,22 @@
         border: none;
         color: rgba(139,69,19, 0.3);
     }
+
+.searchAdjustments{
+    margin-top: 20px;
+
+}
+
+
+.inputAdjustments{
+    float: right !important;
+}
+
+/*.inputAdjustments label{
+    display: block;
+}*/
+
+.labelAdjustments{
+    margin-top: 7px;
+    margin-right: 7px;
+}
